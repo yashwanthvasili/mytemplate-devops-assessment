@@ -4,7 +4,7 @@ This file is a practical runbook for AI coding agents working in this repository
 
 ## What This Repo Is
 
-Ignite is a Flask starter app with:
+MyTemplate is a Flask starter app with:
 - Auth (email/password + Google OAuth)
 - Team/membership model
 - Billing hooks (Stripe)
@@ -16,10 +16,10 @@ Primary package: `appname/`
 ## Fast Start (Local Development)
 
 ```bash
-cd /Users/sumukh/code/Ignite
+cd mytemplate-devops-assessment
 python3 -m venv env
 source env/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
 # Seed local sqlite DB with starter users
 APPNAME_ENV=dev ./manage.py resetdb

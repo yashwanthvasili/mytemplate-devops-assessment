@@ -5,11 +5,11 @@ Use this when you want to get productive in this repo with minimal context.
 ## 1) Setup
 
 ```bash
-cd /Users/sumukh/code/Ignite
+cd mytemplate-devops-assessment
 python3 -m venv env
 source env/bin/activate
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 ## 2) Initialize Local Data

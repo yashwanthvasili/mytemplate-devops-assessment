@@ -1,6 +1,6 @@
 {% extends "lander/base.html" %}
 
-{% block title %}Ignite{% endblock %}
+{% block title %}{{ branding.name }} Terms and Privacy{% endblock %}
 
 {% block js %}
     <script src="https://js.stripe.com/v3/"></script>
@@ -13,9 +13,9 @@
 	<div class="{{bg_color_class}}"></div>
 	<header class="header text-primary">
 		<div class="container nav-header ">
-			<a href="." target="_blank" class="logo">
-				<img src="{{ url_for('static', filename=branding.svg_icon) }}" class="logo-icon h-6" alt="Ignite">
-				ignite
+			<a href="{{ url_for('main.home') }}" class="logo">
+				<img src="{{ url_for('static', filename=branding.svg_icon) }}" class="logo-icon h-6" alt="MyTemplate">
+                {{ branding.name }}
 			</a>
 			<div class="links">
 				<a href="#pricing" class="text-black">Pricing</a>
@@ -33,8 +33,8 @@
 		<p>Last updated: 06/09/2024</p>
 		<li><strong>Introduction</strong></li>
 		<p>Welcome to <strong>{{branding.legal_name}}</strong> (&quot;<strong>Company</strong>&quot;, &quot;<strong>we</strong>&quot;, &quot;<strong>our</strong>&quot;, &quot;<strong>us</strong>&quot;)! Please carefully read the following information. It will take you approximately 20 minutes.</p>
-		<p>These Terms of Service (&quot;<strong>Terms</strong>&quot;, &quot;<strong>Terms of Service</strong>&quot;) govern your use of our web pages located at {{branding.name}} operated by {{branding.legal_name}}</p>
-		<p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here {{branding.name}}/terms.</p>
+		<p>These Terms of Service (&quot;<strong>Terms</strong>&quot;, &quot;<strong>Terms of Service</strong>&quot;) govern your use of our web pages located at https://{{branding.website_domain}} operated by {{branding.legal_name}}</p>
+		<p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it at https://{{branding.website_domain}}/terms.</p>
 		<p>Your agreement with us includes these Terms and our Privacy Policy (&quot;<strong>Agreements</strong>&quot;). You acknowledge that you have read and understood Agreements, and agree to be bound of them.</p>
 		<p>If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at {{branding.support_email}} so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service.</p>
 		<p>Thank you for being responsible.</p>
@@ -123,7 +123,7 @@
 		<p>Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of {{branding.legal_name}} and its licensors. Service is protected by copyright, trademark, and other laws of the United States. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of {{branding.legal_name}}.</p>
 		<li><strong>Copyright Policy</strong></li>
 		<p>We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on Service infringes on the copyright or other intellectual property rights (&quot;<strong>Infringement</strong>&quot;) of any person or entity.</p>
-		<p>If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to support@{{branding.name}}, with the subject line: &quot;Copyright Infringement&quot; and include in your claim a detailed description of the alleged Infringement as detailed below, under &quot;DMCA Notice and Procedure for Copyright Infringement Claims&quot;</p>
+		<p>If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to {{branding.support_email}}, with the subject line: &quot;Copyright Infringement&quot; and include in your claim a detailed description of the alleged Infringement as detailed below, under &quot;DMCA Notice and Procedure for Copyright Infringement Claims&quot;</p>
 		<p>You may be held accountable for damages (including costs and attorneys&#39; fees) for misrepresentation or bad-faith claims on the infringement of any Content found on and/or through Service on your copyright.</p>
 		<li><strong>DMCA Notice and Procedure for Copyright Infringement Claims</strong></li>
 		<p>You may submit a notification pursuant to the Digital Millennium Copyright Act (DMCA) by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
@@ -140,9 +140,9 @@
 		</li>
 		</li>
 		</ol>
-		<p>You can contact our Copyright Agent via email at support@{{branding.name}}</p>
+		<p>You can contact our Copyright Agent via email at {{branding.support_email}}</p>
 		<li><strong>Error Reporting and Feedback</strong></li>
-		<p>You may provide us either directly at support@{{branding.name}} or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Service (&quot;<strong>Feedback</strong>&quot;). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose.</p>
+		<p>You may provide us either directly at {{branding.support_email}} or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Service (&quot;<strong>Feedback</strong>&quot;). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose.</p>
 		<p>The third party sites and tools mentioned above include the following:</p>
 		<p><strong>Sentry</strong></p>
 		<p>Sentry is open-source error tracking solution provided by Functional Software Inc. More information is available here: <a href="https://sentry.io/privacy/">https://sentry.io/privacy/</a></p>
@@ -436,11 +436,10 @@
 			<div class="col-md-auto">
 				<a href="https://github.com/sumukh/ignite">License & Credits</a>
 				・
-				<a href="https://github.com/sumukh/ignite">Privacy</a>
+				<a href="{{ url_for('main.privacy') }}">Privacy</a>
 			</div>
 			<div class="col-md-auto mt-2 mt-sm-0 ml-sm-auto">
-				Powered by <a href="https://github.com/sumukh/ignite">Ignite</a> for Flask
-				<!-- You must purchase a license of Ignite to remove the above disclaimer -->
+				MyTemplate is based on <a href="https://github.com/sumukh/ignite">Ignite</a> for Flask
 			</div>
 		</div>
 	</div>
