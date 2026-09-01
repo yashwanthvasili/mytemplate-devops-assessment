@@ -1,6 +1,5 @@
 [run]
 branch = True
-include = appname/*
 omit =
     *static*
     *templates*
@@ -29,4 +28,7 @@ exclude_lines =
 ignore_errors = False
 
 [html]
-directory = coverage_report
+directory = reports/coverage-html
+
+[xml]
+output = reports/coverage.xml
