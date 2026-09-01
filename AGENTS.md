@@ -40,10 +40,13 @@ Seeded dev logins after `resetdb`:
 # Lint
 make lint
 
-# Full tracked test suite (recommended)
+# Complete QA pipeline: lint, security, backend, UI, and reports (recommended)
+make ci
+
+# Backend tests with coverage
 make agent-test
 
-# Full test discovery (also runs untracked local tests, if any)
+# Legacy full test discovery
 APPNAME_ENV=test ./manage.py test --coverage
 
 # Or raw pytest
@@ -95,7 +98,7 @@ source .env.local
 2. Prefer focused edits in existing modules over broad refactors.
 3. After code changes:
    - Run targeted tests for touched area.
-   - Run `make agent-test` before final handoff when feasible.
+   - Run `make ci` before final handoff when feasible.
 4. If models/migrations behavior is touched, run a local DB reset (`APPNAME_ENV=dev ./manage.py resetdb`) and sanity-check login/dashboard flows.
 5. Do not commit secrets or `.env.local`.
 

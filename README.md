@@ -24,11 +24,10 @@ MyTemplate is a scaffold for starting new SaaS applications built using Python a
 
 Usage of Python 3 is required. It can be installed [on Python.org](https://www.python.org/downloads/)
 
-```
-# Optional but recommended:
-python3 -m venv env; source env/bin/activate
+```bash
+# Create env/, install development dependencies, and install Chromium.
+make setup
 
-pip install -r requirements-dev.txt
 ./manage.py server # or `FLASK_APP=manage flask --debug run`
 ```
 
@@ -38,7 +37,7 @@ If you are using an AI coding agent, start with:
 
 - `AGENTS.md` for repo-specific workflow and architecture guidance
 - `documentation/AGENT_QUICKSTART.md` for copy-paste setup/test commands
-- `make agent-setup`, `make agent-smoke`, and `make agent-test` for standard agent checks
+- `make setup`, `make agent-smoke`, and `make ci` for standard agent checks
 
 ## Development
 
@@ -49,20 +48,23 @@ If you are using an AI coding agent, start with:
 FLASK_APP=manage flask --debug run
 
 # Go to localhost:5000 in a browser and click on Login
-# Login with the following credentials "user@example.com", "test
+# Login with the following credentials: "user@example.com" / "test"
 
 # Production documentation in the repository.
 ```
 
 ## Testing
 
-GitHub Actions is configured to run tests and produce code coverage metrics.
+GitHub Actions runs the same quality pipeline used locally. To execute Ruff,
+Bandit, backend tests with coverage, and the Chromium UI test:
 
-To run tests locally, try this command:
+```bash
+make ci
+```
 
-```
-APPNAME_ENV=test ./manage.py test --coverage
-```
+Generated JUnit, coverage, Ruff, Bandit, and Playwright outputs are written to
+`reports/`. GitHub Actions uploads that directory as the `quality-reports`
+artifact. Run `make help` to see the individual setup and quality targets.
 
 ### Local Secrets
 

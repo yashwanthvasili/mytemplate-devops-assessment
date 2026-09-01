@@ -6,10 +6,7 @@ Use this when you want to get productive in this repo with minimal context.
 
 ```bash
 cd mytemplate-devops-assessment
-python3 -m venv env
-source env/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements-dev.txt
+make setup
 ```
 
 ## 2) Initialize Local Data
@@ -36,12 +33,14 @@ Open [http://localhost:5000](http://localhost:5000)
 # Fast smoke tests
 make agent-smoke
 
-# Full tracked tests + coverage (recommended)
-make agent-test
+# Complete lint, security, backend, UI, and report pipeline (recommended)
+make ci
 
-# Optional: full test discovery (also includes untracked local tests)
-APPNAME_ENV=test ./manage.py test --coverage
+# Backend tests with coverage only
+make agent-test
 ```
+
+Generated QA evidence is written under `reports/`.
 
 ## 5) High-Signal File Locations
 
